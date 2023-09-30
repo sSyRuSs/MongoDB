@@ -36,7 +36,7 @@ namespace WebApplication1.Controllers
         {
             _spRepos.AddNV(sp);
 
-            return CreatedAtAction(nameof(GetAll), new { id = sp.MaSP }, sp);
+            return CreatedAtAction(nameof(GetAll), new { id = sp.ProductID }, sp);
         }
 
         // PUT api/<StudentsController>/5
@@ -66,7 +66,7 @@ namespace WebApplication1.Controllers
                 return NotFound($"San pham with Id = {id} not found");
             }
 
-            _spRepos.Remove(sp.MaSP);
+            _spRepos.Remove(sp.ProductID);
 
             return Ok($"San pham with Id = {id} deleted");
         }

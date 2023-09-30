@@ -67,7 +67,7 @@ namespace WebApplication1.Controllers
                 return NotFound($"Student with Id = {id} not found");
             }
 
-            _ghRepos.Remove(nv.Id);
+            _ghRepos.Remove(nv.cartID);
 
             return Ok($"Student with Id = {id} deleted");
         }

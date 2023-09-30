@@ -23,12 +23,12 @@ namespace WebApplication1.Repositories
 
         public void Remove(string id)
         {
-            _nhanvien.DeleteOne(nv => nv.Id == id);
+            _nhanvien.DeleteOne(nv => nv.EmployeeID == id);
         }
 
         public void Update(string id, NhanVien nhanVien)
         {
-            _nhanvien.ReplaceOne(nhanVien => nhanVien.Id == id, nhanVien);
+            _nhanvien.ReplaceOne(nhanVien => nhanVien.EmployeeID == id, nhanVien);
         }
         public List<NhanVien> GetAllNV()
         {
@@ -37,7 +37,7 @@ namespace WebApplication1.Repositories
 
         public NhanVien Get(string id)
         {
-            return _nhanvien.Find(nv => nv.Id == id).FirstOrDefault();
+            return _nhanvien.Find(nv => nv.EmployeeID == id).FirstOrDefault();
         }
 
     }

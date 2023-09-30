@@ -10,21 +10,34 @@ namespace WebApplication1.Models
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public ObjectId Id { get; set; }
-
-        [BsonElement("id")]
-        public string MaSP { get; set; } = String.Empty;
-        [BsonElement("name")]
-        public string Name { get; set; } = String.Empty;
-        [BsonElement("price")]
-        public int Price { get; set; }
-
-        [BsonElement("description")]
-        public string Description { get; set; }=String.Empty;
-        [BsonElement("image")]
-        public string Image { get; set; } = String.Empty;
+        [BsonElement("productID")]
+        public string? ProductID { get; set; }
+        [BsonElement("productName")]
+        public string? ProductName { get; set; }
+        [BsonElement("unitPrice")]
+        public int UnitPrice { get; set; }
+        [BsonElement("quantity")]
+        public int Quantity { get; set; }
+        [BsonElement("discount")]
+        public int Discount { get; set; }
         [BsonElement("category")]
-        public string Category { get; set; } = String.Empty;
+        public Category Category { get; set; }
         [BsonElement("supplier")]
-        public string Supplier { get; set; } = String.Empty;
+        public Supplier Supplier { get; set; }
+        
+    }
+    public class Category
+    {
+        [BsonElement("categoryID")]
+        public string? CategoryID { get; set; }
+        [BsonElement("categoryName")]
+        public string? CategoryName { get; set; }
+    }
+    public class Supplier
+    {
+        [BsonElement("supplierID")]
+        public string? SupplierID { get; set; }
+        [BsonElement("supplierName")]
+        public string? SupplierName { get; set; }
     }
 }

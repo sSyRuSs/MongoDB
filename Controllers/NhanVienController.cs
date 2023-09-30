@@ -66,7 +66,7 @@ namespace WebApplication1.Controllers
                 return NotFound($"Student with Id = {id} not found");
             }
 
-            _nvRepos.Remove(nv.Id);
+            _nvRepos.Remove(nv.EmployeeID);
 
             return Ok($"Student with Id = {id} deleted");
         }

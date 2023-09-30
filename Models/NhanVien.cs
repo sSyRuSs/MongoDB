@@ -9,21 +9,30 @@ namespace WebApplication1.Models
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        public string? Id { get; set; } = String.Empty;
-
+        public ObjectId Id { get; set; }
+        [BsonElement("employeeID")]
+        public string? EmployeeID { get; set; }
         [BsonElement("name")]
         public string Name { get; set; } = String.Empty;
 
-        [BsonElement("graduated")]
-        public bool IsGraduated { get; set; }
-
-        [BsonElement("courses")]
-        public string[]? Courses { get; set; }
+        [BsonElement("email")]
+        public string? Email { get; set;}
 
         [BsonElement("gender")]
         public string Gender { get; set; } = String.Empty;
 
         [BsonElement("age")]
         public int Age { get; set; }
+        [BsonElement("password")]
+        public string Password { get; set; } = String.Empty;
+        [BsonElement("role")]
+        public Role Role{get;set;}
+    }
+    public class Role
+    {
+        [BsonElement("roleID")]
+        public string? RoleID { get; set; }
+        [BsonElement("roleName")]
+        public string? RoleName { get; set; }
     }
 }

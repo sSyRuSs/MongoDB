@@ -21,12 +21,12 @@ namespace WebApplication1.Repositories
 
         public void Remove(string id)
         {
-            _sanpham.DeleteOne(nv => nv.MaSP == id);
+            _sanpham.DeleteOne(nv => nv.ProductID == id);
         }
 
         public void Update(string id, SanPham sanPham)
         {
-            _sanpham.ReplaceOne(sanPham => sanPham.MaSP == id, sanPham);
+            _sanpham.ReplaceOne(sanPham => sanPham.ProductID == id, sanPham);
         }
         public List<SanPham> GetAllNV()
         {
@@ -35,7 +35,7 @@ namespace WebApplication1.Repositories
 
         public SanPham Get(string id)
         {
-            return _sanpham.Find(sp => sp.MaSP == id).FirstOrDefault();
+            return _sanpham.Find(sp => sp.ProductID == id).FirstOrDefault();
         }
     }
 }

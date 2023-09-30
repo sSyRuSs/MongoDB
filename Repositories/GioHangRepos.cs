@@ -23,12 +23,12 @@ namespace WebApplication1.Repositories
 
         public void Remove(string id)
         {
-            _giohang.DeleteOne(nv => nv.Id == id);
+            _giohang.DeleteOne(nv => nv.cartID == id);
         }
 
         public void Update(string id, GioHang gioHang)
         {
-            _giohang.ReplaceOne(gioHang => gioHang.Id == id, gioHang);
+            _giohang.ReplaceOne(gioHang => gioHang.cartID == id, gioHang);
         }
         public List<GioHang> GetAllNV()
         {
@@ -37,7 +37,7 @@ namespace WebApplication1.Repositories
 
         public GioHang Get(string id)
         {
-            return _giohang.Find(gh => gh.Id == id).FirstOrDefault();
+            return _giohang.Find(gh => gh.cartID == id).FirstOrDefault();
         }
 
     }

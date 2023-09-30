@@ -9,24 +9,33 @@ namespace WebApplication1.Models
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        public string? Id { get; set; } = String.Empty;
-        #nullable disable
-        [BsonElement("id")]
-        public string MaSP { get; set; } = String.Empty;
-        [BsonElement("name")]
-        public string Name { get; set; } = String.Empty;
-        [BsonElement("price")]
-        public int Price { get; set; }
-#nullable enable
-        [BsonElement("description")]
-        public string? Description { get; set; }
-        [BsonElement("image")]
-        public string? Image { get; set; }
-        [BsonElement("category")]
-        public string? Category { get; set; }
-        [BsonElement("supplier")]
-        public string? Supplier { get; set; }
+        public ObjectId Id { get; set; }
+        [BsonElement("cartID")]
+        public string? cartID{get;set;}
+        [BsonElement("customer")]
+        public Customer Customer{get;set;}
+        [BsonElement("detail")]
+        public CartDetail[] CartDetail{get;set;}
+        [BsonElement("total")]
+        public int Total{get;set;}
+    }
+    public class Customer
+    {
+        [BsonElement("customerID")]
+        public string? CustomerID { get; set; }
+        [BsonElement("customerName")]
+        public string? CustomerName { get; set; }
+    }
+    public class CartDetail
+    {
+        [BsonElement("productID")]
+        public string? ProductID { get; set; }
+        [BsonElement("productName")]
+        public string? ProductName { get; set; }
         [BsonElement("quantity")]
         public int Quantity { get; set; }
+        [BsonElement("price")]
+        public int Price { get; set; }
     }
+    
 }
