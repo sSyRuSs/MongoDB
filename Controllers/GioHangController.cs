@@ -47,7 +47,7 @@ namespace WebApplication1.Controllers
 
             if (Nv == null)
             {
-                return NotFound($"Nhan vien with Id = {id} not found");
+                return NotFound($"cart with Id = {id} not found");
             }
 
             _ghRepos.Update(id, nv);
@@ -64,12 +64,12 @@ namespace WebApplication1.Controllers
 
             if (nv == null)
             {
-                return NotFound($"Student with Id = {id} not found");
+                return NotFound($"cart with Id = {id} not found");
             }
 
-            _ghRepos.Remove(nv.cartID);
+            _ghRepos.Remove(nv.CustomerID);
 
-            return Ok($"Student with Id = {id} deleted");
+            return Ok($"cart with Id = {id} deleted");
         }
     }
 }

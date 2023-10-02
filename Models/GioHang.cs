@@ -10,21 +10,24 @@ namespace WebApplication1.Models
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public ObjectId Id { get; set; }
-        [BsonElement("cartID")]
-        public string? cartID{get;set;}
-        [BsonElement("customer")]
-        public Customer Customer{get;set;}
-        [BsonElement("detail")]
-        public CartDetail[] CartDetail{get;set;}
-        [BsonElement("total")]
-        public int Total{get;set;}
-    }
-    public class Customer
-    {
+
         [BsonElement("customerID")]
         public string? CustomerID { get; set; }
         [BsonElement("customerName")]
         public string? CustomerName { get; set; }
+        [BsonElement("cart")]
+        public Cart Cart{get;set;}
+        
+    }
+    public class Cart
+    {
+        [BsonElement("cartID")]
+        public string? cartID{get;set;}
+        
+        [BsonElement("detail")]
+        public CartDetail[] CartDetail{get;set;}
+        [BsonElement("total")]
+        public int Total{get;set;}
     }
     public class CartDetail
     {

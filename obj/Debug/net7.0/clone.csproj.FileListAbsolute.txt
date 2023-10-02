@@ -47,3 +47,15 @@ C:\long\NoSQL\clone\obj\Debug\net7.0\refint\clone.dll
 C:\long\NoSQL\clone\obj\Debug\net7.0\clone.pdb
 C:\long\NoSQL\clone\obj\Debug\net7.0\clone.genruntimeconfig.cache
 C:\long\NoSQL\clone\obj\Debug\net7.0\ref\clone.dll
+C:\Long\NoSQL\clone\bin\Debug\net7.0\FE\NoSQL\package-lock.json
+C:\Long\NoSQL\clone\bin\Debug\net7.0\FE\NoSQL\package.json
+C:\Long\NoSQL\clone\bin\Debug\net7.0\FE\NoSQL\tsconfig.json
+C:\Long\NoSQL\clone\bin\Debug\net7.0\FE\NoSQL\tsconfig.node.json
+C:\Long\NoSQL\clone\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Long\NoSQL\clone\bin\Debug\net7.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Long\NoSQL\clone\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Long\NoSQL\clone\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
+C:\Long\NoSQL\clone\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
+C:\Long\NoSQL\clone\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Long\NoSQL\clone\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
+C:\Long\NoSQL\clone\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll
