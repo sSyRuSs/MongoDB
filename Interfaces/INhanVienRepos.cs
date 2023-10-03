@@ -12,5 +12,6 @@ namespace WebApplication1.Interfaces
         public void Update(string id, NhanVien nhanVien);
         public List<NhanVien> GetAllNV();
         public NhanVien Get(string id);
+        public NhanVien GetByEmail(string id);
     }
 }

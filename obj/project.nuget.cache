@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "kHJWzC7fMz6Gkl5FVDSiJB5RLDkqzXjiVIXRitA5GvHY4+SKmjDZw8Qs4Skhdk7bTGO0ayWC8kTrAx8fjMAQQA==",
+  "dgSpecHash": "92uy3FAFC/u3BqF3Xhs15V2ibwpZE4rcfgPVF0FQVVGo9E5BmEo45WvZ6ttJtGKmOGH1MOIIzu2e4+/LVexv2Q==",
   "success": true,
   "projectFilePath": "C:\\Long\\NoSQL\\clone\\clone.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Admin\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\dnsclient\\1.6.1\\dnsclient.1.6.1.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.4\\microsoft.aspnetcore.authentication.jwtbearer.6.0.4.nupkg.sha512",

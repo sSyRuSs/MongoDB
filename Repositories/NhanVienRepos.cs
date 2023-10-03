@@ -3,6 +3,7 @@ using MongoDB.Bson;
 using MongoDB.Driver;
 using WebApplication1.Models;
 using MongoDB.Driver.Core.Operations;
+using Microsoft.AspNetCore.Mvc;
 
 namespace WebApplication1.Repositories
 {
@@ -39,6 +40,9 @@ namespace WebApplication1.Repositories
         {
             return _nhanvien.Find(nv => nv.EmployeeID == id).FirstOrDefault();
         }
-
+        public NhanVien GetByEmail(string id)
+        {
+            return _nhanvien.Find(nv => nv.Email == id).FirstOrDefault();
+        }
     }
 }

@@ -24,7 +24,6 @@ namespace WebApplication1.Models
         public Category Category { get; set; }
         [BsonElement("supplier")]
         public Supplier Supplier { get; set; }
-        
     }
     public class Category
     {

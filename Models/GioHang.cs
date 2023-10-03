@@ -29,16 +29,16 @@ namespace WebApplication1.Models
         [BsonElement("total")]
         public int Total{get;set;}
     }
-    public class CartDetail
+    public class CartDetail:SanPham
     {
-        [BsonElement("productID")]
-        public string? ProductID { get; set; }
-        [BsonElement("productName")]
-        public string? ProductName { get; set; }
-        [BsonElement("quantity")]
-        public int Quantity { get; set; }
-        [BsonElement("price")]
-        public int Price { get; set; }
+        // [BsonElement("productID")]
+        // public string? ProductID { get; set; }
+        // [BsonElement("productName")]
+        // public string? ProductName { get; set; }
+        // [BsonElement("quantity")]
+        // public int Quantity { get; set; }
+        // [BsonElement("price")]
+        // public int Price { get; set; }
     }
     
 }
