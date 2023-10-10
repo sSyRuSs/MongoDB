@@ -31,7 +31,7 @@ builder.Services.AddScoped<IGioHangRepos, GioHangRepos>();
 builder.Services.AddCors(options =>
    {
        options.AddDefaultPolicy(builder =>
-           builder.SetIsOriginAllowed(_ => true)
+           builder.WithOrigins("http://localhost:4200").SetIsOriginAllowed(_ => true)
            .AllowAnyMethod()
            .AllowAnyHeader()
            .AllowCredentials());
@@ -80,7 +80,7 @@ if (app.Environment.IsDevelopment())
 }
 //app.UseMvc();
 app.UseHttpsRedirection();
-
+app.UseCors();
 app.UseAuthorization();
 
 app.MapControllers();
