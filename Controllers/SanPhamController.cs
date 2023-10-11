@@ -70,5 +70,16 @@ namespace WebApplication1.Controllers
 
             return Ok($"San pham with Id = {id} deleted");
         }
+
+        [HttpGet("GetAllByCat")]
+        public ActionResult<List<SanPham>> GetAllByCat(string name)
+        {
+            return _spRepos.GetAllByCat(name);
+        }
+        [HttpGet("GetAllBySupplier")]
+        public ActionResult<List<SanPham>> GetAllBySupplier(string name)
+        {
+            return _spRepos.GetAllBySupplier(name);
+        }
     }
 }

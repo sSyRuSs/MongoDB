@@ -37,5 +37,23 @@ namespace WebApplication1.Repositories
         {
             return _sanpham.Find(sp => sp.ProductID == id).FirstOrDefault();
         }
+
+        public List<SanPham> GetAllByCat(string name)
+        {
+            return _sanpham.Find(sp => sp.Category.CategoryName == name).ToList();
+        }
+        public List<SanPham> GetAllBySupplier(string name)
+        {
+            return _sanpham.Find(sp => sp.Supplier.SupplierName == name).ToList();
+        }
+        public bool CheckExist(string productId)
+        {
+            var sp = _sanpham.Find(sp => sp.ProductID == productId).FirstOrDefault();
+            if (sp == null)
+            {
+                return false;
+            }
+            return true;
+        }
     }
 }

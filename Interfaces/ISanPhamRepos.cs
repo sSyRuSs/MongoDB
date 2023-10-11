@@ -12,5 +12,8 @@ namespace WebApplication1.Interfaces
         public void Update(string id, SanPham sanPham);
         public List<SanPham> GetAllNV();
         public SanPham Get(string id);
+        public List<SanPham> GetAllBySupplier(string name);
+        public List<SanPham> GetAllByCat(string name);
+        public bool CheckExist(string productId);
     }
 }
