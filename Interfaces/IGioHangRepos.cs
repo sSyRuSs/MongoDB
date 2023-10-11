@@ -12,5 +12,7 @@ namespace WebApplication1.Interfaces
         public void Update(string id, GioHang gioHang);
         public List<GioHang> GetAllNV();
         public GioHang Get(string id);
+        public List<GioHang> GetAllCartByCus(string id);
+        public List<GioHang> GetAllCartByDate(DateTime date);
     }
 }

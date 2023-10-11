@@ -40,5 +40,14 @@ namespace WebApplication1.Repositories
             return _giohang.Find(gh => gh.CustomerID == id).FirstOrDefault();
         }
 
+        public List<GioHang> GetAllCartByCus(string id)
+        {
+            return _giohang.Find(gh => gh.CustomerID == id).ToList();
+        }
+
+        public List<GioHang> GetAllCartByDate(DateTime date)
+        {
+            return _giohang.Find(gh => gh.Cart.Any(c => c.Date == date)).ToList();
+        }
     }
 }

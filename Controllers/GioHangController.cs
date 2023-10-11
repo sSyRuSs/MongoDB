@@ -71,5 +71,17 @@ namespace WebApplication1.Controllers
 
             return Ok($"cart with Id = {id} deleted");
         }
+
+        [HttpGet("GetAllByCus{id}")]
+        public ActionResult<List<GioHang>> GetAllByCus(string id)
+        {
+            return _ghRepos.GetAllCartByCus(id);
+        }
+
+        [HttpGet("GetAllByDate")]
+        public ActionResult<List<GioHang>> GetAllByDate(DateTime date)
+        {
+            return _ghRepos.GetAllCartByDate(date);
+        }
     }
 }

@@ -17,13 +17,16 @@ namespace WebApplication1.Models
         [BsonElement("customerName")]
         public string? CustomerName { get; set; }
         [BsonElement("cart")]
-        public Cart Cart{get;set;}
+        public Cart[] Cart{get;set;}
         
     }
     public class Cart
     {
         [BsonElement("cartID")]
         public string? cartID{get;set;}
+
+        [BsonElement("DateCreate")]
+        public DateTime Date{get; set;}
         
         [BsonElement("detail")]
         public CartDetail[] CartDetail{get;set;}
