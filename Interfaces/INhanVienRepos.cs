@@ -13,5 +13,6 @@ namespace WebApplication1.Interfaces
         public List<NhanVien> GetAllNV();
         public NhanVien Get(string id);
         public NhanVien GetByEmail(string id);
+        public List<NhanVien> GetAllByRole(string role);
     }
 }

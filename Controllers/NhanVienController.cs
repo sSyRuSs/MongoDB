@@ -103,5 +103,11 @@ namespace WebApplication1.Controllers
             }
             return nv;
         }
+
+        [HttpGet("GetAllByRole")]
+        public ActionResult<List<NhanVien>> GetAllByRole(string role)
+        {
+            return _nvRepos.GetAllByRole(role);
+        }
     }
 }

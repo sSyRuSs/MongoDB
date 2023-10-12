@@ -44,5 +44,11 @@ namespace WebApplication1.Repositories
         {
             return _nhanvien.Find(nv => nv.Email == id).FirstOrDefault();
         }
+
+        public List<NhanVien> GetAllByRole(string role)
+        {
+            return _nhanvien.Find(nv => nv.Role.RoleName == role).ToList();
+        }
+        
     }
 }
