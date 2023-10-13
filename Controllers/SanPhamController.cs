@@ -17,7 +17,7 @@ namespace WebApplication1.Controllers
         [HttpGet]
         public ActionResult<List<SanPham>> GetAll()
         {
-            return _spRepos.GetAllNV();
+            return _spRepos.GetAllSP();
         }
         [HttpGet("{id}")]
         public ActionResult<SanPham> GetSanPhamById(string id)
@@ -34,7 +34,7 @@ namespace WebApplication1.Controllers
         [HttpPost]
         public ActionResult<SanPham> Post([FromBody] SanPham sp)
         {
-            _spRepos.AddNV(sp);
+            _spRepos.AddSP(sp);
 
             return CreatedAtAction(nameof(GetAll), new { id = sp.ProductID }, sp);
         }
@@ -80,6 +80,13 @@ namespace WebApplication1.Controllers
         public ActionResult<List<SanPham>> GetAllBySupplier(string name)
         {
             return _spRepos.GetAllBySupplier(name);
+        }
+
+        [HttpGet("CheckExist")]
+        public ActionResult<bool> CheckExist(string id)
+        {
+            bool sp = _spRepos.CheckExist(id);
+            return Ok(sp);
         }
     }
 }

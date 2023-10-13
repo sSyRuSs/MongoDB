@@ -4,6 +4,10 @@ using WebApplication1.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using BCrypt.Net;
+using System.Security.Claims;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace WebApplication1.Controllers
 {
@@ -12,7 +16,7 @@ namespace WebApplication1.Controllers
     public class NhanVienController : ControllerBase
     {
         //public static NhanVien NhanVien = new NhanVien();
-        private IConfiguration _configuration;
+        private readonly IConfiguration _configuration;
         private readonly INhanVienRepos _nvRepos;
         public NhanVienController(INhanVienRepos _nvRepos, IConfiguration configuration)
         {
@@ -101,13 +105,38 @@ namespace WebApplication1.Controllers
             {
                 return BadRequest("Email or Password wrong");
             }
-            return nv;
+            string token = CreateToken(nhanVien);
+
+            return Ok(token);
+            
         }
+
+        private string CreateToken(NhanVien nhanVien)
+        {
+            List<Claim> claims = new List<Claim>{
+                new Claim(ClaimTypes.Name, nhanVien.Email ),
+                new Claim(ClaimTypes.Role, nhanVien.Role.RoleName)
+            };
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration.GetSection("AppSettings:Token").Value!));
+            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
+
+            var token = new JwtSecurityToken(
+                claims: claims,
+                expires: DateTime.Now.AddDays(1),
+                signingCredentials: creds
+                );
+
+            var jwt = new JwtSecurityTokenHandler().WriteToken(token);
+            return jwt;
+            }
+        
 
         [HttpGet("GetAllByRole")]
         public ActionResult<List<NhanVien>> GetAllByRole(string role)
         {
-            return _nvRepos.GetAllByRole(role);
+            return _nvRepos.GetAllByRole(role); 
         }
+
+
     }
 }

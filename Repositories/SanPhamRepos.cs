@@ -2,6 +2,7 @@ using WebApplication1.Interfaces;
 using WebApplication1.Models;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using Microsoft.AspNetCore.Http.HttpResults;
 namespace WebApplication1.Repositories
 {
     public class SanPhamRepos:ISanPhamRepos
@@ -13,22 +14,26 @@ namespace WebApplication1.Repositories
             _sanpham = db.GetCollection<SanPham>(settings.CollectionName2);
 
         }
-        public SanPham AddNV(SanPham sanPham)
+        public SanPham AddSP(SanPham sanPham)
         {
-            _sanpham.InsertOne(sanPham);
-            return sanPham;
+            if(!CheckExist(sanPham.ProductID))
+            {
+                _sanpham.InsertOne(sanPham);
+                return sanPham;
+            }
+            throw new Exception("San pham trung");
         }
 
         public void Remove(string id)
         {
             _sanpham.DeleteOne(nv => nv.ProductID == id);
         }
-
+        
         public void Update(string id, SanPham sanPham)
         {
-            _sanpham.ReplaceOne(sanPham => sanPham.ProductID == id, sanPham);
+            _sanpham.ReplaceOne(sp => sp.ProductID == id, sanPham);
         }
-        public List<SanPham> GetAllNV()
+        public List<SanPham> GetAllSP()
         {
             return _sanpham.Find(SanPham => true).ToList();
         }

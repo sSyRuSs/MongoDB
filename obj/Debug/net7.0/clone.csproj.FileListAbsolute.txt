@@ -60,3 +60,8 @@ C:\Long\NoSQL\clone\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdCon
 C:\Long\NoSQL\clone\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
 C:\Long\NoSQL\clone\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll
 C:\Long\NoSQL\clone\bin\Debug\net7.0\BCrypt.Net-Next.dll
+C:\Long\NoSQL\clone\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
+C:\Long\NoSQL\clone\bin\Debug\net7.0\Scrutor.dll
+C:\Long\NoSQL\clone\bin\Debug\net7.0\Swashbuckle.AspNetCore.Filters.dll
+C:\Long\NoSQL\clone\bin\Debug\net7.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll
+C:\Long\NoSQL\clone\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
