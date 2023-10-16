@@ -8,12 +8,13 @@ namespace WebApplication1.Interfaces
     public interface ISanPhamRepos
     {
         public SanPham AddSP(SanPham sanPham);
-        public void Remove(string id);
-        public void Update(string id, SanPham sanPham);
+        public void Remove(int id);
+        public void Update(int id, SanPham sanPham);
         public List<SanPham> GetAllSP();
-        public SanPham Get(string id);
+        public SanPham GetByID(int id);
+        public SanPham Get(string name);
         public List<SanPham> GetAllBySupplier(string name);
         public List<SanPham> GetAllByCat(string name);
-        public bool CheckExist(string productId);
+        public bool CheckExist(int productId);
     }
 }

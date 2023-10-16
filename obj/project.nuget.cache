@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "IwWXucgbQxe0ftuXPW1jNkw/a12y7hhRVefdzslRKP9zl3I3T94KbuK9Ehp5KDjxQUW/vCXeT1MSlj9tmoWxVg==",
+  "dgSpecHash": "LrRMotZEgNS7WYiMWskOKk22G9a8MbhRhcPi3/c2hoviG/uV26WAkdAZy8tAZT/QsKCKkE3njt3FyidsFozmQg==",
   "success": true,
-  "projectFilePath": "C:\\Long\\NoSQL\\clone\\clone.csproj",
+  "projectFilePath": "C:\\Long\\NoSQL\\NoSQL_BE\\clone.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\dnsclient\\1.6.1\\dnsclient.1.6.1.nupkg.sha512",

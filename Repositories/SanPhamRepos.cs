@@ -24,12 +24,12 @@ namespace WebApplication1.Repositories
             throw new Exception("San pham trung");
         }
 
-        public void Remove(string id)
+        public void Remove(int id)
         {
             _sanpham.DeleteOne(nv => nv.ProductID == id);
         }
         
-        public void Update(string id, SanPham sanPham)
+        public void Update(int id, SanPham sanPham)
         {
             _sanpham.ReplaceOne(sp => sp.ProductID == id, sanPham);
         }
@@ -38,9 +38,14 @@ namespace WebApplication1.Repositories
             return _sanpham.Find(SanPham => true).ToList();
         }
 
-        public SanPham Get(string id)
+        public SanPham GetByID(int id)
         {
             return _sanpham.Find(sp => sp.ProductID == id).FirstOrDefault();
+        }
+
+        public SanPham Get(string name)
+        {
+            return _sanpham.Find(sp => sp.ProductName == name).FirstOrDefault();
         }
 
         public List<SanPham> GetAllByCat(string name)
@@ -51,7 +56,7 @@ namespace WebApplication1.Repositories
         {
             return _sanpham.Find(sp => sp.Supplier.SupplierName == name).ToList();
         }
-        public bool CheckExist(string productId)
+        public bool CheckExist(int productId)
         {
             var sp = _sanpham.Find(sp => sp.ProductID == productId).FirstOrDefault();
             if (sp == null)

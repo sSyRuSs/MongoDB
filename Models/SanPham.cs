@@ -10,10 +10,13 @@ namespace WebApplication1.Models
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public ObjectId Id { get; set; }
+        [BsonIgnoreIfDefault]
         [BsonElement("productID")]
-        public string? ProductID { get; set; }
+        public int ProductID { get; set; }
         [BsonElement("productName")]
         public string? ProductName { get; set; }
+        [BsonElement("image")]
+        public string? ProductImage{get; set;}
         [BsonElement("unitPrice")]
         public int UnitPrice { get; set; }
         [BsonElement("quantity")]

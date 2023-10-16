@@ -41,9 +41,9 @@ namespace WebApplication1.Controllers
 
         // PUT api/<StudentsController>/5
         [HttpPut("{id}")]
-        public ActionResult Put(string id, [FromBody] SanPham sp)
+        public ActionResult Put(int id, [FromBody] SanPham sp)
         {
-            var Sp = _spRepos.Get(id);
+            var Sp = _spRepos.GetByID(id);
 
             if (Sp == null)
             {
@@ -57,9 +57,9 @@ namespace WebApplication1.Controllers
 
         // DELETE api/<StudentsController>/5
         [HttpDelete("{id}")]
-        public ActionResult Delete(string id)
+        public ActionResult Delete(int id)
         {
-            var sp = _spRepos.Get(id);
+            var sp = _spRepos.GetByID(id);
 
             if (sp == null)
             {
@@ -83,7 +83,7 @@ namespace WebApplication1.Controllers
         }
 
         [HttpGet("CheckExist")]
-        public ActionResult<bool> CheckExist(string id)
+        public ActionResult<bool> CheckExist(int id)
         {
             bool sp = _spRepos.CheckExist(id);
             return Ok(sp);

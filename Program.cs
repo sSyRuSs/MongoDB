@@ -34,7 +34,7 @@ builder.Services.AddSwaggerGen(
     options.OperationFilter<SecurityRequirementsOperationFilter>();
 }
 );
-
+builder.Services.AddControllersWithViews();
 builder.Services.Configure<MongoDBSettings>(builder.Configuration.GetSection(nameof(MongoDBSettings)));
 builder.Services.AddSingleton<IMongoDBSettings>(e => e.GetRequiredService<IOptions<MongoDBSettings>>().Value);
 builder.Services.AddSingleton<IMongoClient>(s => new MongoClient(builder.Configuration.GetValue<string>("ConnectionStrings:ConnectionURI")));

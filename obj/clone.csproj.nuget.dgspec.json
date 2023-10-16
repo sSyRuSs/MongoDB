@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Long\\NoSQL\\clone\\clone.csproj": {}
+    "C:\\Long\\NoSQL\\NoSQL_BE\\clone.csproj": {}
   },
   "projects": {
-    "C:\\Long\\NoSQL\\clone\\clone.csproj": {
+    "C:\\Long\\NoSQL\\NoSQL_BE\\clone.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Long\\NoSQL\\clone\\clone.csproj",
+        "projectUniqueName": "C:\\Long\\NoSQL\\NoSQL_BE\\clone.csproj",
         "projectName": "clone",
-        "projectPath": "C:\\Long\\NoSQL\\clone\\clone.csproj",
+        "projectPath": "C:\\Long\\NoSQL\\NoSQL_BE\\clone.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Long\\NoSQL\\clone\\obj\\",
+        "outputPath": "C:\\Long\\NoSQL\\NoSQL_BE\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
