@@ -26,16 +26,28 @@ namespace WebApplication1.Repositories
 
         public void Remove(int id)
         {
-            _sanpham.DeleteOne(nv => nv.ProductID == id);
+            _sanpham.DeleteOne(sp => sp.ProductID == id);
         }
-        
+
         public void Update(int id, SanPham sanPham)
         {
-            _sanpham.ReplaceOne(sp => sp.ProductID == id, sanPham);
+            var filter = Builders<SanPham>.Filter.Eq(sp => sp.ProductID, id);
+            var update = Builders<SanPham>.Update
+                .Set(sp => sp.ProductName, sanPham.ProductName)
+                .Set(sp => sp.ProductImage, sanPham.ProductImage)
+                .Set(sp => sp.UnitPrice, sanPham.UnitPrice)
+                .Set(sp => sp.Quantity, sanPham.Quantity)
+                .Set(sp => sp.Discount, sanPham.Discount)
+                .Set(sp=> sp.Category.CategoryID, sanPham.Category.CategoryID)
+                .Set(sp=> sp.Category.CategoryName, sanPham.Category.CategoryName)
+                .Set(sp => sp.Supplier.SupplierID, sanPham.Supplier.SupplierID)
+                .Set(sp => sp.Supplier.SupplierName, sanPham.Supplier.SupplierName);
+            _sanpham.UpdateOne(filter, update);
         }
+
         public List<SanPham> GetAllSP()
         {
-            return _sanpham.Find(SanPham => true).ToList();
+            return _sanpham.Find(sp => true).ToList();
         }
 
         public SanPham GetByID(int id)

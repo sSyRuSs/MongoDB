@@ -60,10 +60,11 @@ namespace WebApplication1.Controllers
             {
                 return NotFound($"Nhan vien with Id = {id} not found");
             }
-
+            string PasswordHash = BCrypt.Net.BCrypt.HashPassword(nv.Password);
+            nv.Password = PasswordHash;
             _nvRepos.Update(id, nv);
 
-            return NoContent();
+            return CreatedAtAction(nameof(GetAll), new { id = nv.Id }, nv);
         }
 
         // DELETE api/<StudentsController>/5

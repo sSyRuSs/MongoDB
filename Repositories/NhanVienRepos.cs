@@ -41,7 +41,16 @@ namespace WebApplication1.Repositories
 
         public void Update(string id, NhanVien nhanVien)
         {
-            _nhanvien.ReplaceOne(nhanVien => nhanVien.EmployeeID == id, nhanVien);
+            var filter = Builders<NhanVien>.Filter.Eq(nv => nv.EmployeeID, id);
+            var update = Builders<NhanVien>.Update
+                .Set(nv => nv.Name, nhanVien.Name)
+                .Set(nv => nv.Age, nhanVien.Age)
+                .Set(nv => nv.Email, nhanVien.Email)
+                .Set(nv => nv.Gender, nhanVien.Gender)
+                .Set(nv => nv.Password, nhanVien.Password)
+                .Set(nv=> nv.Role.RoleID, nhanVien.Role.RoleID)
+                .Set(nv=> nv.Role.RoleName, nhanVien.Role.RoleName);
+            _nhanvien.UpdateOne(filter, update);
         }
         public List<NhanVien> GetAllNV()
         {

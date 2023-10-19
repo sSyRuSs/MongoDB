@@ -52,7 +52,7 @@ namespace WebApplication1.Controllers
 
             _spRepos.Update(id, sp);
 
-            return NoContent();
+            return Ok($"San pham with Id = {id} update");
         }
 
         // DELETE api/<StudentsController>/5

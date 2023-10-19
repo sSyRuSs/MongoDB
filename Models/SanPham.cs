@@ -10,7 +10,8 @@ namespace WebApplication1.Models
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public ObjectId Id { get; set; }
-        [BsonIgnoreIfDefault]
+
+        
         [BsonElement("productID")]
         public int ProductID { get; set; }
         [BsonElement("productName")]
