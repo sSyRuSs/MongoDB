@@ -44,5 +44,4 @@ namespace WebApplication1.Models
         [BsonElement("price")]
         public int Price { get; set; }
     }
-    
 }
