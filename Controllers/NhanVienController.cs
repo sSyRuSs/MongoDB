@@ -102,7 +102,7 @@ namespace WebApplication1.Controllers
             {
                 return BadRequest("User Not Found");
             }
-            if (BCrypt.Net.BCrypt.EnhancedVerify(nhanVien.Password, nv.Password))
+            if (!BCrypt.Net.BCrypt.Verify(nhanVien.Password, nv.Password))
             {
                 return BadRequest("Email or Password wrong");
             }
