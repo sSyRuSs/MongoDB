@@ -2,20 +2,24 @@ using WebApplication1.Interfaces;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using WebApplication1.Models;
+using WebApplication1.ViewModels;
 using MongoDB.Driver.Core.Operations;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
+using AutoMapper;
 namespace WebApplication1.Repositories
 {
     public class NhanVienRepos : INhanVienRepos
     {
         private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly IMapper _mapper;
         private readonly IMongoCollection<NhanVien> _nhanvien;
-        public NhanVienRepos(IMongoDBSettings settings, IMongoClient mongoClient, IHttpContextAccessor httpContextAccessor)
+        public NhanVienRepos(IMongoDBSettings settings, IMongoClient mongoClient, IHttpContextAccessor httpContextAccessor, IMapper mapper)
         {
             var db = mongoClient.GetDatabase(settings.DatabaseName);
             _nhanvien = db.GetCollection<NhanVien>(settings.CollectionName1);
             _httpContextAccessor = httpContextAccessor;
+            _mapper = mapper;
         }
 
         // public string GetInfo()
@@ -61,9 +65,11 @@ namespace WebApplication1.Repositories
         {
             return _nhanvien.Find(nv => nv.EmployeeID == id).FirstOrDefault();
         }
-        public NhanVien GetByEmail(string id)
+
+        public VM_NhanVien GetByEmail(string id)
         {
-            return _nhanvien.Find(nv => nv.Email == id).FirstOrDefault();
+            var nhanVien = _nhanvien.Find(nv => nv.Email == id).FirstOrDefault();
+            return _mapper.Map<VM_NhanVien>(nhanVien);
         }
 
         public List<NhanVien> GetAllByRole(string role)

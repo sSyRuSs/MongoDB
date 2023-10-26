@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Identity;
 using Swashbuckle.AspNetCore.Filters;
 using Microsoft.Extensions.Configuration;
 using System.Text;
+using AutoMapper;
 using Microsoft.OpenApi.Models;
 var builder = WebApplication.CreateBuilder(args);
 
@@ -43,12 +44,14 @@ builder.Services.AddScoped<INhanVienRepos, NhanVienRepos>();
 builder.Services.AddScoped<ISanPhamRepos, SanPhamRepos>();
 builder.Services.AddScoped<IGioHangRepos, GioHangRepos>();
 
-builder.Services.AddHttpContextAccessor();
+builder.Services.AddAutoMapper(typeof(Program));
 
+builder.Services.AddHttpContextAccessor();
+builder.Services.Configure<MongoDBSettings>(builder.Configuration.GetSection("ConnectionStrings"));
 builder.Services.AddCors(options =>
    {
        options.AddDefaultPolicy(builder =>
-           builder.WithOrigins("http://localhost:4200").SetIsOriginAllowed(_ => true)
+           builder.WithOrigins("http://localhost:3000").SetIsOriginAllowed(_ => true)
            .AllowAnyMethod()
            .AllowAnyHeader()
            .AllowCredentials());

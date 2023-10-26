@@ -1,4 +1,5 @@
 using WebApplication1.Models;
+using WebApplication1.ViewModels;
 using WebApplication1.Repositories;
 using WebApplication1.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -7,6 +8,7 @@ using BCrypt.Net;
 using System.Security.Claims;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using AutoMapper;
 using System.IdentityModel.Tokens.Jwt;
 
 namespace WebApplication1.Controllers
@@ -95,7 +97,7 @@ namespace WebApplication1.Controllers
         }
 
         [HttpPost("login")]
-        public ActionResult<NhanVien> Login(NhanVien nhanVien)
+        public ActionResult<NhanVien> Login(VM_NhanVien nhanVien)
         {
             var nv = _nvRepos.GetByEmail(nhanVien.Email);
             if (nv == null)
@@ -112,11 +114,11 @@ namespace WebApplication1.Controllers
             
         }
 
-        private string CreateToken(NhanVien nhanVien)
+        private string CreateToken(VM_NhanVien nhanVien)
         {
             List<Claim> claims = new List<Claim>{
-                new Claim(ClaimTypes.Name, nhanVien.Email ),
-                new Claim(ClaimTypes.Role, nhanVien.Role.RoleName)
+                new Claim(ClaimTypes.Name, nhanVien.Email )
+                //new Claim(ClaimTypes.Role, nhanVien.Role.RoleName)
             };
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration.GetSection("AppSettings:Token").Value!));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);

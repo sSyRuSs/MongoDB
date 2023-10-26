@@ -126,3 +126,5 @@ C:\Long\NoSQL\NoSQL_BE\obj\Debug\net7.0\refint\clone.dll
 C:\Long\NoSQL\NoSQL_BE\obj\Debug\net7.0\clone.pdb
 C:\Long\NoSQL\NoSQL_BE\obj\Debug\net7.0\clone.genruntimeconfig.cache
 C:\Long\NoSQL\NoSQL_BE\obj\Debug\net7.0\ref\clone.dll
+C:\Long\NoSQL\NoSQL_BE\bin\Debug\net7.0\AutoMapper.dll
+C:\Long\NoSQL\NoSQL_BE\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
