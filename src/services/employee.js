@@ -17,3 +17,11 @@ export const updateEmployye = (id, body) => {
 export const deleteEmployye = (id) => {
   return axios.delete(`/nhanvien/${id}`)
 }
+
+export const registerEmployee = (body) => {
+  return axios.post('/NhanVien/register', body)
+}
+
+export const loginEmployee = (body) => {
+  return axios.post('/NhanVien/login', body)
+}

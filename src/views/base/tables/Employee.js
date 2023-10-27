@@ -211,7 +211,7 @@ const Employee = () => {
             <strong>Product Table</strong> <small>Basic Product table</small>
           </CCardHeader>
           <CCardBody>
-            <p className="text-medium-emphasis small">Anh Long mào gà</p>
+            <p className="text-medium-emphasis small">Manage Emplotee</p>
 
             <CTable>
               <CTableHead>

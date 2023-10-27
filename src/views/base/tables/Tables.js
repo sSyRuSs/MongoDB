@@ -28,6 +28,8 @@ import {
 import CIcon from '@coreui/icons-react'
 import { cilPlus } from '@coreui/icons'
 import { createProduct, deleteProduct, getProducts, updateProduct } from 'src/services/product'
+import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 const Tables = () => {
   const [products, setProducts] = useState([])
@@ -50,8 +52,15 @@ const Tables = () => {
       supplierName: '',
     },
   })
+  console.log(products)
   const [toast, addToast] = useState(0)
   const toaster = useRef()
+  const navigate = useNavigate()
+
+  const isLogin = localStorage.getItem('isLogin')
+  if (!isLogin) {
+    navigate('/login')
+  }
 
   const exampleToast = (
     <CToast title="CoreUI for React.js">
@@ -117,7 +126,6 @@ const Tables = () => {
   useEffect(() => {
     getInitProduct()
   }, [])
-
   return (
     <CRow>
       {loading && <CSpinner color="primary" />}
@@ -247,7 +255,7 @@ const Tables = () => {
             <strong>Product Table</strong> <small>Basic Product table</small>
           </CCardHeader>
           <CCardBody>
-            <p className="text-medium-emphasis small">Anh Long mào gà</p>
+            <p className="text-medium-emphasis small">Product manage</p>
 
             <CTable>
               <CTableHead>
