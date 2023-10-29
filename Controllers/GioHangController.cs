@@ -34,6 +34,7 @@ namespace WebApplication1.Controllers
         [HttpPost]
         public ActionResult<GioHang> Post([FromBody] GioHang nv)
         {
+            
             _ghRepos.AddGH(nv);
 
             return CreatedAtAction(nameof(GetAll), new { id = nv.Id }, nv);

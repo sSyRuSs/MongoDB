@@ -9,6 +9,7 @@ namespace WebApplication1
         public AutoMapper()
         {
             CreateMap<NhanVien, VM_NhanVien>();
+            CreateMap<SanPham, VM_SanPham>();
         }
     }
 }

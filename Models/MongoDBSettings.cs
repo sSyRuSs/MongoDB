@@ -1,3 +1,5 @@
+using MongoDB.Bson;
+using MongoDB.Driver;
 namespace WebApplication1.Models
 {
     public class MongoDBSettings:IMongoDBSettings
@@ -8,5 +10,6 @@ namespace WebApplication1.Models
         public string CollectionName1 { get; set; } = "NhanVien";
         public string CollectionName2 { get; set; } = "SanPham";
         public string CollectionName3 { get; set; } = "GioHang";
+
     }
 }

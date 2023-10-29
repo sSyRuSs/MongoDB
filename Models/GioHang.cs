@@ -1,7 +1,9 @@
 using MongoDB.Bson;
+using MongoDB.Driver;
 using MongoDB.Bson.Serialization.Attributes;
 using System.Text.Json.Serialization;
 using WebApplication1.Models;
+using WebApplication1.ViewModels;
 
 namespace WebApplication1.Models
 {
@@ -33,15 +35,8 @@ namespace WebApplication1.Models
         [BsonElement("total")]
         public int Total{get;set;}
     }
-    public class CartDetail
+    public class CartDetail 
     {
-        [BsonElement("productID")]
-        public string? ProductID { get; set; }
-        [BsonElement("productName")]
-        public string? ProductName { get; set; }
-        [BsonElement("quantity")]
-        public int Quantity { get; set; }
-        [BsonElement("price")]
-        public int Price { get; set; }
-    }
+        public IList<SanPham> sanPhams{get; set;}
+    } 
 }

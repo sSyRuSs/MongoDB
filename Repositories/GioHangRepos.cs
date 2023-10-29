@@ -9,6 +9,10 @@ namespace WebApplication1.Repositories
     public class GioHangRepos : IGioHangRepos
     {
         private readonly IMongoCollection<GioHang> _giohang;
+        // public IMongoCollection<SanPham> Sanpham
+        // {
+        //     get{return _giohang.}
+        // }
         public GioHangRepos(IMongoDBSettings settings, IMongoClient mongoClient)
         {
             var db = mongoClient.GetDatabase(settings.DatabaseName);
