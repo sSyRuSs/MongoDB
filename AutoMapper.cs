@@ -10,6 +10,8 @@ namespace WebApplication1
         {
             CreateMap<NhanVien, VM_NhanVien>();
             CreateMap<SanPham, VM_SanPham>();
+            CreateMap<SanPham, VM_SP_Cat>();
+            CreateMap<SanPham, VM_SP_Sup>();
         }
     }
 }

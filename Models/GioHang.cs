@@ -4,12 +4,14 @@ using MongoDB.Bson.Serialization.Attributes;
 using System.Text.Json.Serialization;
 using WebApplication1.Models;
 using WebApplication1.ViewModels;
+using System.ComponentModel.DataAnnotations;
 
 namespace WebApplication1.Models
 {
     [BsonIgnoreExtraElements]
     public class GioHang
     {
+        [Key]
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public ObjectId Id { get; set; }
@@ -37,6 +39,6 @@ namespace WebApplication1.Models
     }
     public class CartDetail 
     {
-        public IList<SanPham> sanPhams{get; set;}
+        public IList<VM_SanPham> sanPhams{get; set;}
     } 
 }

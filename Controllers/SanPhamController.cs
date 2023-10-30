@@ -1,7 +1,12 @@
 using WebApplication1.Models;
+using WebApplication1.ViewModels;
 using WebApplication1.Repositories;
 using WebApplication1.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using System.IO;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Http;
+using AutoMapper;
 namespace WebApplication1.Controllers
 {
     [Route("api/[controller]")]
@@ -34,8 +39,8 @@ namespace WebApplication1.Controllers
         [HttpPost]
         public ActionResult<SanPham> Post([FromBody] SanPham sp)
         {
-            _spRepos.AddSP(sp);
 
+            _spRepos.AddSP(sp);
             return CreatedAtAction(nameof(GetAll), new { id = sp.ProductID }, sp);
         }
 
@@ -88,5 +93,52 @@ namespace WebApplication1.Controllers
             bool sp = _spRepos.CheckExist(id);
             return Ok(sp);
         }
+
+        [HttpGet("GetAllCategory")]
+        public ActionResult<List<VM_SP_Cat>> GetAllCat()
+        {
+            return _spRepos.GetAllCat();
+        }
+
+        // [HttpPost]
+        // public ActionResult<VM_SP_Cat> PostCat([FromBody] VM_SP_Cat cat)
+        // {
+        //     _spRepos.AddCat(cat);
+        //     return CreatedAtAction(nameof(GetAll), new { id = cat.CategoryID }, cat);
+        // }
+
+        // [HttpPut("{id}")]
+        // public ActionResult PutCat(string id, [FromBody] VM_SP_Cat cat)
+        // {
+        //     var Cat = _spRepos.getCatById(id);
+
+        //     if (Cat == null)
+        //     {
+        //         return NotFound($"Category with Id = {id} not found");
+        //     }
+
+        //     _spRepos.UpdateCat(id, cat);
+
+        //     return Ok($"Category with Id = {id} update");
+        
+        // }
+
+        [HttpGet("GetAllSupplier")]
+        public ActionResult<List<VM_SP_Sup>> GetAllSupplier()
+        {
+            return _spRepos.GetAllSup();
+        }
+
+        [HttpGet("GetCatById")]
+        public ActionResult<VM_SP_Cat> GetCatById(string id)
+        {
+            var cat = _spRepos.getCatById(id);
+            if (cat == null)
+            {
+                return NotFound();
+            }
+            return cat;
+        }
+
     }
 }
