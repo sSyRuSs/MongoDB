@@ -1,0 +1,26 @@
+<div class="col-12">
+  <a class="nav-link" ><button type="submit" class="btn btn-primary" routerLink="products/add">Add Product</button></a>
+</div>
+<table class="table" *ngIf="products && products.length > 0">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Image</th>
+      <th scope="col">Price</th>
+      <th scope="col">CatName</th>
+      <th scope="col">SupName</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let pro of products">
+      <td>{{ pro.productID }}</td>
+      <td>{{ pro.productName }}</td>
+      <td>{{ pro.productImage }}</td>
+      <td>{{ pro.unitPrice }}</td>
+      <td>{{ pro.Category?.categoryName }}</td>
+      <td>{{ pro.Supplier?.supplierName }}</td>
+    </tr>
+  </tbody>
+</table>
+<p *ngIf="!products || products.length <= 0">Not Found</p>
